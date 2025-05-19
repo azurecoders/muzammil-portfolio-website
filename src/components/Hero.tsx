@@ -1,35 +1,36 @@
 "use client";
-import React from "react";
-import { useState, useEffect, useRef } from "react";
-import {
-  ArrowUpRight,
-  Sparkles,
-  Briefcase,
-  Mail,
-  Github,
-  Instagram,
-  Linkedin,
-  Dribbble,
-  Star,
-} from "lucide-react";
+import { heroData } from "@/data/hero";
+import { importantLinksData } from "@/data/importantLinks";
+import { ArrowUpRight, Briefcase, Mail, Sparkles, Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [animationSpeed, setAnimationSpeed] = useState(30); // seconds to complete one cycle
+  const [animationSpeed, setAnimationSpeed] = useState(
+    heroData?.silderAnimationSpeed
+  ); // seconds to complete one cycle
 
-  // Clone items for seamless scrolling
-  const headerItem = (
-    <div className="flex items-center gap-2 mx-4 whitespace-nowrap">
-      <Sparkles size={20} className="text-primary" />
-      <p className="text-lg sm:text-2xl md:text-3xl font-semibold uppercase text-foreground">
-        THE BEST SOLUTION
-      </p>
-    </div>
-  );
+  const sliderItemsData = heroData.sliderItems;
 
   // Create enough clones to fill the screen width plus some extra
-  const items = Array(10).fill(headerItem);
+  const items = sliderItemsData.map((item) => {
+    const Icon = item.icon;
+    return (
+      <div
+        key={item.id}
+        className="flex items-center gap-2 mx-4 whitespace-nowrap"
+      >
+        <Icon size={24} className="text-primary" />
+        <p className="text-lg sm:text-2xl md:text-3xl font-semibold uppercase text-foreground">
+          {item.text}
+        </p>
+      </div>
+    );
+  });
+
+  const duplicatedItems = [...items, ...items];
 
   useEffect(() => {
     const container = containerRef.current;
@@ -46,7 +47,6 @@ const Hero = () => {
     const newSpeed = (totalContentWidth / 100) * 2; // Adjust speed based on width
     setAnimationSpeed(newSpeed);
 
-    // Apply the animation
     container.style.animationDuration = `${newSpeed}s`;
 
     // Recalculate on resize
@@ -63,7 +63,7 @@ const Hero = () => {
   }, [items.length]);
 
   return (
-    <section>
+    <section id="#">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16 md:py-28">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           {/* Left Content */}
@@ -71,54 +71,56 @@ const Hero = () => {
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
               <Sparkles size={16} className="text-primary" />
               <span className="text-sm sm:text-base font-medium">
-                Design Professional
+                {heroData.label}
               </span>
             </div>
 
             <div className="space-y-3 sm:space-y-4">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight">
-                <span className="block">{"I'm Amjad Hussain"}</span>
+                <span className="block">{heroData.topSection.heading}</span>
               </h1>
               <div className="h-[2px] w-[60px] sm:w-[80px] bg-gradient-to-r from-primary to-blue-500" />
 
               <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold bg-gradient-to-r from-primary to-blue-500 text-transparent bg-clip-text">
-                Graphics Designer
+                {heroData.topSection.subHeading}
               </h2>
             </div>
 
             <p className="text-neutral-600 text-base sm:text-lg max-w-xl leading-relaxed">
-              Working globally with leading brands to create strategic visual
-              solutions. I believe that progress comes to those who dare to push
-              creative boundaries.
+              {heroData.description}
             </p>
 
             {/* Social Icons */}
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className="text-neutral-600 border-2 border-neutral-200 rounded-full h-[35px] w-[35px] sm:h-[45px] sm:w-[45px] flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 cursor-pointer">
-                <Github size={18} />
-              </div>
-              <div className="text-neutral-600 border-2 border-neutral-200 rounded-full h-[35px] w-[35px] sm:h-[45px] sm:w-[45px] flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 cursor-pointer">
-                <Instagram size={18} />
-              </div>
-              <div className="text-neutral-600 border-2 border-neutral-200 rounded-full h-[35px] w-[35px] sm:h-[45px] sm:w-[45px] flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 cursor-pointer">
-                <Linkedin size={18} />
-              </div>
-              <div className="text-neutral-600 border-2 border-neutral-200 rounded-full h-[35px] w-[35px] sm:h-[45px] sm:w-[45px] flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 cursor-pointer">
-                <Dribbble size={18} />
-              </div>
+              {heroData.socialLinks.map((socialLink, index) => (
+                <Link
+                  href={socialLink.href}
+                  key={index}
+                  target="_blank"
+                  className="text-neutral-600 border-2 border-neutral-200 rounded-full h-[35px] w-[35px] sm:h-[45px] sm:w-[45px] flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 cursor-pointer"
+                >
+                  <socialLink.icon size={18} />
+                </Link>
+              ))}
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 pt-3 sm:pt-4">
-              <button className="flex items-center justify-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:bg-primary/90 transition-all duration-300 font-semibold group cursor-pointer text-sm sm:text-base">
+              <Link
+                href={importantLinksData.cvDownloadLink}
+                className="flex items-center justify-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:bg-primary/90 transition-all duration-300 font-semibold group cursor-pointer text-sm sm:text-base"
+              >
                 Download CV
                 <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </button>
+              </Link>
 
-              <button className="flex items-center justify-center gap-2 border-2 border-neutral-200 px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:border-primary hover:text-primary transition-all duration-300 font-semibold cursor-pointer text-sm sm:text-base">
+              <Link
+                href="#contact"
+                className="flex items-center justify-center gap-2 border-2 border-neutral-200 px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:border-primary hover:text-primary transition-all duration-300 font-semibold cursor-pointer text-sm sm:text-base"
+              >
                 <Mail size={18} />
-                Contact Me
-              </button>
+                Contact Us
+              </Link>
             </div>
 
             {/* Social Proof */}
@@ -163,7 +165,7 @@ const Hero = () => {
                 <p className="text-sm sm:text-base text-neutral-600">
                   Trusted by{" "}
                   <span className="font-semibold text-primary">
-                    20+ clients
+                    {heroData.reviewCount}+ clients
                   </span>{" "}
                   worldwide
                 </p>
@@ -186,17 +188,17 @@ const Hero = () => {
             </div>
 
             {/* Floating badges - hidden on very small screens */}
-            <div className="hidden xs:flex absolute -bottom-3 sm:-bottom-4 left-1/4 bg-white/90 rounded-full shadow-lg p-2 sm:p-3 items-center gap-1 sm:gap-2 z-30 text-xs sm:text-sm">
+            <div className="hidden lg:flex absolute -bottom-3 sm:-bottom-4 left-1/4 bg-white/90 rounded-full shadow-lg p-2 sm:p-3 items-center gap-1 sm:gap-2 z-50 text-xs sm:text-sm">
               <Briefcase className="text-primary" size={14} />
-              <span className="font-medium">7+ Years Experience</span>
+              <span className="font-medium">{heroData.badges.badge3}</span>
             </div>
-            <div className="hidden xs:flex absolute top-10 sm:top-20 -right-4 sm:-right-8 bg-white/90 rounded-full shadow-lg p-2 sm:p-3 items-center gap-1 sm:gap-2 z-30 text-xs sm:text-sm">
+            <div className="hidden lg:flex absolute top-10 sm:top-20 -right-4 sm:-right-8 bg-white/90 rounded-full shadow-lg p-2 sm:p-3 items-center gap-1 sm:gap-2 z-30 text-xs sm:text-sm">
               <Briefcase className="text-primary" size={14} />
-              <span className="font-medium">7+ Years Experience</span>
+              <span className="font-medium">{heroData.badges.badge1}</span>
             </div>
-            <div className="hidden xs:flex absolute top-32 sm:top-44 -left-2 sm:-left-8 bg-white/90 rounded-full shadow-lg p-2 sm:p-3 items-center gap-1 sm:gap-2 z-30 text-xs sm:text-sm">
+            <div className="hidden lg:flex absolute top-32 sm:top-44 -left-2 sm:-left-8 bg-white/90 rounded-full shadow-lg p-2 sm:p-3 items-center gap-1 sm:gap-2 z-30 text-xs sm:text-sm">
               <Briefcase className="text-primary" size={14} />
-              <span className="font-medium">7+ Years Experience</span>
+              <span className="font-medium">{heroData.badges.badge2}</span>
             </div>
           </div>
         </div>
@@ -211,13 +213,12 @@ const Hero = () => {
             animation: `scroll ${animationSpeed}s linear infinite`,
           }}
         >
-          {items.map((item, index) => (
+          {duplicatedItems.map((item, index) => (
             <div key={index} className="mx-4 sm:mx-8">
               {item}
             </div>
           ))}
         </div>
-
         <style jsx>{`
           @keyframes scroll {
             0% {
@@ -227,7 +228,6 @@ const Hero = () => {
               transform: translateX(-50%);
             }
           }
-
           @media (max-width: 640px) {
             @keyframes scroll {
               0% {

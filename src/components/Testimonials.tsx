@@ -1,3 +1,5 @@
+"use client";
+import { testimonialData } from "@/data/testimonial";
 import { Quote, Sparkles, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
@@ -7,11 +9,15 @@ const Testimonials = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+    setActiveIndex((prev) =>
+      prev === 0 ? testimonialData.testimonials.length - 1 : prev - 1
+    );
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+    setActiveIndex((prev) =>
+      prev === testimonialData.testimonials.length - 1 ? 0 : prev + 1
+    );
   };
 
   useEffect(() => {
@@ -24,50 +30,6 @@ const Testimonials = () => {
 
     return () => clearInterval(interval);
   }, [handleNext]);
-
-  // Testimonial data
-  const testimonials = [
-    {
-      id: 1,
-      name: "Daniel Smith",
-      position: "Senior Engineer at TechCorp",
-      image:
-        "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      rating: 5,
-      quote:
-        "This digital agency completely transformed our online presence. Their expertise, creativity, and attention to detail exceeded all our expectations. We highly recommend their outstanding services!",
-    },
-    {
-      id: 2,
-      name: "Sarah Johnson",
-      position: "Marketing Director at BrandWave",
-      image:
-        "https://images.unsplash.com/photo-1639149888905-fb39731f2e6c?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      rating: 5,
-      quote:
-        "Working with this team has been a game-changer for our business. They consistently deliver innovative solutions that align perfectly with our brand vision and business goals.",
-    },
-    {
-      id: 3,
-      name: "Michael Chen",
-      position: "CEO at InnovateTech",
-      image:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D",
-      rating: 4,
-      quote:
-        "Their strategic approach to our digital transformation has driven remarkable results. The team's commitment to excellence and collaborative spirit makes them a trusted partner.",
-    },
-    {
-      id: 4,
-      name: "Emily Rodriguez",
-      position: "Product Manager at GrowthLabs",
-      image:
-        "https://images.unsplash.com/photo-1678286742832-26543bb49959?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      rating: 5,
-      quote:
-        "The level of professionalism and technical expertise demonstrated by this agency is unmatched. They turned our complex requirements into elegant solutions.",
-    },
-  ];
 
   return (
     <section className="w-full bg-secondary text-foreground py-12 sm:py-16 md:py-24 overflow-hidden">
@@ -83,21 +45,23 @@ const Testimonials = () => {
             <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-primary/10 rounded-full">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               <span className="text-xs sm:text-sm font-semibold text-primary tracking-wide uppercase">
-                Testimonials
+                {testimonialData.label}
               </span>
             </div>
           </div>
 
           {/* Section Title */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center">
-            What Our <span className="text-primary">Clients</span> Say
+            {testimonialData.headings.headingPart1}{" "}
+            <span className="text-primary">
+              {testimonialData.headings.headingPart2}
+            </span>{" "}
+            {testimonialData.headings.headingPart3}
           </h2>
 
           {/* Section Description */}
           <p className="text-base sm:text-lg text-center max-w-2xl mx-auto text-gray-300">
-            {
-              "Don't just take our word for it — hear from the businesses we've helped transform through our digital solutions."
-            }
+            {testimonialData.description}
           </p>
         </div>
 
@@ -111,7 +75,7 @@ const Testimonials = () => {
             {/* Rating Number */}
             <div className="text-center md:text-left">
               <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">
-                4.8
+                {testimonialData.stats.rating}
               </h3>
               <p className="text-xs sm:text-sm text-gray-300 mt-1">
                 out of 5.0
@@ -135,7 +99,7 @@ const Testimonials = () => {
                 ))}
               </div>
               <p className="text-xs sm:text-sm md:text-md font-medium text-gray-300">
-                Based on 1,200+ client reviews
+                Based on {testimonialData.stats.clients}+ client reviews
               </p>
             </div>
 
@@ -147,7 +111,9 @@ const Testimonials = () => {
 
             {/* Clients */}
             <div className="text-center md:text-left">
-              <h4 className="text-xl sm:text-2xl font-bold">500+</h4>
+              <h4 className="text-xl sm:text-2xl font-bold">
+                {testimonialData.stats.projects}+
+              </h4>
               <p className="text-xs sm:text-sm md:text-md font-medium text-gray-300">
                 Projects completed
               </p>
@@ -172,8 +138,8 @@ const Testimonials = () => {
                 <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-neutral-700 shadow-xl">
                   <div className="w-full h-full">
                     <Image
-                      src={testimonials[activeIndex].image}
-                      alt={`${testimonials[activeIndex].name} portrait`}
+                      src={testimonialData.testimonials[activeIndex].image}
+                      alt={`${testimonialData.testimonials[activeIndex].name} portrait`}
                       width={800}
                       height={800}
                       className="w-full h-full object-cover"
@@ -199,14 +165,14 @@ const Testimonials = () => {
                 {/* Content */}
                 <div className="mt-8 sm:mt-10">
                   <p className="text-base sm:text-lg md:text-xl font-medium leading-relaxed text-gray-100 ml-4 sm:ml-6">
-                    {testimonials[activeIndex].quote}
+                    {testimonialData.testimonials[activeIndex].quote}
                   </p>
 
                   <div className="mt-6 sm:mt-8 flex items-center">
                     <div className="flex-shrink-0 mr-3 sm:mr-4">
                       <Image
-                        src={testimonials[activeIndex].image}
-                        alt={testimonials[activeIndex].name}
+                        src={testimonialData.testimonials[activeIndex].image}
+                        alt={testimonialData.testimonials[activeIndex].name}
                         width={250}
                         height={250}
                         className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-primary"
@@ -214,17 +180,18 @@ const Testimonials = () => {
                     </div>
                     <div>
                       <h4 className="text-lg sm:text-xl font-semibold text-white">
-                        {testimonials[activeIndex].name}
+                        {testimonialData.testimonials[activeIndex].name}
                       </h4>
                       <p className="text-xs sm:text-sm text-gray-300">
-                        {testimonials[activeIndex].position}
+                        {testimonialData.testimonials[activeIndex].position}
                       </p>
                       <div className="flex items-center gap-1 mt-1">
                         {[...Array(5)].map((_, i) => (
                           <Star
                             key={i}
                             className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${
-                              i < testimonials[activeIndex].rating
+                              i <
+                              testimonialData.testimonials[activeIndex].rating
                                 ? "text-yellow-400 fill-yellow-400"
                                 : "text-gray-500"
                             }`}
@@ -263,18 +230,20 @@ const Testimonials = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
         >
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveIndex(index)}
-              className={`h-2 sm:h-3 rounded-full transition-all duration-300 ${
-                activeIndex === index
-                  ? "bg-primary w-6 sm:w-8"
-                  : "bg-neutral-700 w-2 sm:w-3"
-              }`}
-              aria-label={`Go to testimonial ${index + 1}`}
-            />
-          ))}
+          {testimonialData &&
+            testimonialData.testimonials &&
+            testimonialData.testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveIndex(index)}
+                className={`h-2 sm:h-3 rounded-full transition-all duration-300 ${
+                  activeIndex === index
+                    ? "bg-primary w-6 sm:w-8"
+                    : "bg-neutral-700 w-2 sm:w-3"
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
         </div>
       </div>
     </section>

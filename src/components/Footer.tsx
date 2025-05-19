@@ -1,14 +1,5 @@
-import {
-  Copyright,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
-  Mail,
-  Phone,
-  MapPin,
-  ArrowRight,
-} from "lucide-react";
+import { footerData } from "@/data/footer";
+import { ArrowRight, Copyright, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -69,10 +60,15 @@ const Footer = () => {
                     size={20}
                     className="mt-1 text-primary flex-shrink-0"
                   />
-                  <p className="text-neutral-300 hover:text-primary cursor-pointer transition-all duration-300 ease-in-out text-sm md:text-base">
-                    123 Main Street,
-                    <br />
-                    New York, NY 10001
+                  <p className="text-neutral-300 text-sm md:text-base whitespace-pre-line">
+                    {footerData.location.split(",").map((part, index) => (
+                      <span key={index}>
+                        {part.trim()}
+                        {index < footerData.location.split(",").length - 1 && (
+                          <br />
+                        )}
+                      </span>
+                    ))}
                   </p>
                 </div>
               </div>
@@ -91,7 +87,7 @@ const Footer = () => {
                       href="mailto:amjadhussainshadow@gmail.com"
                       className="text-neutral-300 hover:text-primary transition-all duration-300 ease-in-out text-sm md:text-base truncate"
                     >
-                      amjadhussainshadow@gmail.com
+                      {footerData.contact.email}
                     </a>
                   </div>
                   <div className="flex items-center space-x-3 group">
@@ -99,12 +95,9 @@ const Footer = () => {
                       size={20}
                       className="text-primary group-hover:scale-110 transition-all duration-300 flex-shrink-0"
                     />
-                    <a
-                      href="tel:+92 355 5085804"
-                      className="text-neutral-300 hover:text-primary transition-all duration-300 ease-in-out text-sm md:text-base"
-                    >
-                      +92 355 5085804
-                    </a>
+                    <p className="text-neutral-300 hover:text-primary transition-all duration-300 ease-in-out text-sm md:text-base">
+                      {footerData.contact.phoneNumber}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -115,18 +108,16 @@ const Footer = () => {
                 Connect With Us
               </h3>
               <div className="flex flex-wrap gap-3 md:gap-4">
-                <SocialIcon href="https://facebook.com">
-                  <Facebook size={18} />
-                </SocialIcon>
-                <SocialIcon href="https://twitter.com">
-                  <Twitter size={18} />
-                </SocialIcon>
-                <SocialIcon href="https://instagram.com">
-                  <Instagram size={18} />
-                </SocialIcon>
-                <SocialIcon href="https://linkedin.com">
-                  <Linkedin size={18} />
-                </SocialIcon>
+                {footerData &&
+                  footerData.connectWithUs &&
+                  footerData.connectWithUs.map((item, index) => {
+                    const Icon = item.icon;
+                    return (
+                      <SocialIcon key={index} href={item.href}>
+                        <Icon size={18} />
+                      </SocialIcon>
+                    );
+                  })}
               </div>
             </div>
           </div>
@@ -151,21 +142,16 @@ const Footer = () => {
                 Our Services
               </h3>
               <div className="flex flex-col space-y-3 md:space-y-4">
-                <FooterLink href="/services/mobile-app">
-                  Mobile App Design
-                </FooterLink>
-                <FooterLink href="/services/web-development">
-                  Web Development
-                </FooterLink>
-                <FooterLink href="/services/custom-software">
-                  Custom Software
-                </FooterLink>
-                <FooterLink href="/services/brand-identity">
-                  Brand Identity
-                </FooterLink>
-                <FooterLink href="/services/consulting">
-                  IT Consulting
-                </FooterLink>
+                {footerData &&
+                  footerData.services &&
+                  footerData.services.map((item, index) => (
+                    <p
+                      className="text-neutral-300 group flex items-center gap-2 hover:text-primary cursor-pointer transition-all duration-300 ease-in-out text-sm md:text-base font-medium"
+                      key={index}
+                    >
+                      {item}
+                    </p>
+                  ))}
               </div>
             </div>
           </div>
@@ -176,7 +162,7 @@ const Footer = () => {
           <p className="text-neutral-300 text-sm md:text-base font-medium flex flex-wrap items-center justify-center sm:justify-start gap-1 mb-4 sm:mb-0">
             <Copyright size={16} className="text-primary" />
             <span className="mx-1">2025</span>
-            <span className="text-primary font-semibold">Xiomi</span>
+            <span className="text-primary font-semibold">Amjad</span>
             <span className="mx-1">• All rights reserved</span>
           </p>
 

@@ -1,4 +1,5 @@
 "use client";
+import { importantLinksData } from "@/data/importantLinks";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -16,7 +17,7 @@ const Navbar = () => {
           {/* Logo */}
           <div>
             <Link href="/">
-              <h1 className="text-2xl md:text-3xl font-semibold">Xiomi</h1>
+              <h1 className="text-2xl md:text-3xl font-semibold">Amjad</h1>
             </Link>
           </div>
 
@@ -74,7 +75,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/#about"
                   className="font-medium hover:text-primary cursor-pointer transition-all duration-300 ease-in-out"
                 >
                   About
@@ -82,7 +83,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/#services"
                   className="font-medium hover:text-primary cursor-pointer transition-all duration-300 ease-in-out"
                 >
                   Services
@@ -90,7 +91,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/#projects"
                   className="font-medium hover:text-primary cursor-pointer transition-all duration-300 ease-in-out"
                 >
                   Portfolio
@@ -98,7 +99,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/#contact"
                   className="font-medium hover:text-primary cursor-pointer transition-all duration-300 ease-in-out"
                 >
                   Contact
@@ -109,9 +110,12 @@ const Navbar = () => {
 
           {/* CTA Button - Hidden on small screens */}
           <div className="hidden md:block">
-            <button className="bg-black/90 text-white px-5 py-2 lg:px-8 rounded-full hover:bg-primary cursor-pointer border-none outline-none transition-all duration-300 ease-in-out">
+            <Link
+              href={importantLinksData.hireMe}
+              className="bg-black/90 text-white px-5 py-2 lg:px-8 rounded-full hover:bg-primary cursor-pointer border-none outline-none transition-all duration-300 ease-in-out"
+            >
               Hire Me
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -126,25 +130,25 @@ const Navbar = () => {
                 Home
               </Link>
               <Link
-                href="/"
+                href="/#about"
                 className="block px-3 py-2 font-medium hover:text-primary transition-all duration-300 ease-in-out"
               >
                 About
               </Link>
               <Link
-                href="/"
+                href="/#services"
                 className="block px-3 py-2 font-medium hover:text-primary transition-all duration-300 ease-in-out"
               >
                 Services
               </Link>
               <Link
-                href="/"
+                href="/#projects"
                 className="block px-3 py-2 font-medium hover:text-primary transition-all duration-300 ease-in-out"
               >
                 Portfolio
               </Link>
               <Link
-                href="/"
+                href="/#contact"
                 className="block px-3 py-2 font-medium hover:text-primary transition-all duration-300 ease-in-out"
               >
                 Contact
@@ -152,9 +156,12 @@ const Navbar = () => {
 
               {/* CTA Button for mobile */}
               <div className="mt-4 mb-2">
-                <button className="w-full bg-black/90 text-white px-4 py-2 rounded-full hover:bg-primary cursor-pointer border-none outline-none transition-all duration-300 ease-in-out">
+                <Link
+                  href={importantLinksData.hireMe}
+                  className="w-full bg-black/90 text-white px-4 py-2 rounded-full hover:bg-primary cursor-pointer border-none outline-none transition-all duration-300 ease-in-out"
+                >
                   Hire Me
-                </button>
+                </Link>
               </div>
             </div>
           </div>

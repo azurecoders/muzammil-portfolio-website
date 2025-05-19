@@ -1,57 +1,9 @@
+import { awardsData } from "@/data/awards";
 import { Award, Sparkles, Star, Trophy } from "lucide-react";
 import { useState } from "react";
 
 const Awards = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-
-  type AwardType = {
-    id: number;
-    title: string;
-    date: string;
-    icon: string;
-    color: string;
-    iconColor: string;
-    trophyColor: string;
-  };
-
-  const awards: AwardType[] = [
-    {
-      id: 1,
-      title: "Design Leadership Award",
-      date: "March 26, 2024",
-      icon: "award",
-      color: "bg-blue-50 border-blue-200",
-      iconColor: "text-blue-500",
-      trophyColor: "text-blue-400",
-    },
-    {
-      id: 2,
-      title: "UX Excellence Recognition",
-      date: "January 14, 2024",
-      icon: "star",
-      color: "bg-purple-50 border-purple-200",
-      iconColor: "text-purple-500",
-      trophyColor: "text-purple-400",
-    },
-    {
-      id: 3,
-      title: "Creative Portfolio Showcase",
-      date: "November 8, 2023",
-      icon: "sparkles",
-      color: "bg-amber-50 border-amber-200",
-      iconColor: "text-amber-500",
-      trophyColor: "text-amber-400",
-    },
-    {
-      id: 4,
-      title: "Digital Innovation Prize",
-      date: "August 30, 2023",
-      icon: "trophy",
-      color: "bg-emerald-50 border-emerald-200",
-      iconColor: "text-emerald-500",
-      trophyColor: "text-emerald-400",
-    },
-  ];
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -77,25 +29,27 @@ const Awards = () => {
         <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-primary/10 rounded-full">
           <Sparkles size={16} className="text-primary" />
           <span className="text-xs sm:text-sm font-semibold text-primary tracking-wide uppercase">
-            Recognition & Awards
+            {awardsData.label}
           </span>
         </div>
 
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-2 mb-3 sm:mb-4 leading-tight">
-          Award-Winning <span className="text-primary">Excellence</span>
+          {awardsData.headings.headingsNormal}{" "}
+          <span className="text-primary">
+            {awardsData.headings.headingHighlighted}
+          </span>
         </h2>
 
         <p className="text-neutral-600 text-base sm:text-lg max-w-2xl mx-auto sm:mx-0">
-          Recognition from industry leaders highlighting my commitment to
-          innovation, creativity, and exceptional design standards.
+          {awardsData.description}
         </p>
       </div>
 
       {/* Awards grid with fully responsive layout */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-6xl">
-        {awards &&
-          awards.length > 0 &&
-          awards.map((award) => (
+        {awardsData &&
+          awardsData.awards.length > 0 &&
+          awardsData.awards.map((award) => (
             <div
               key={award.id}
               className={`${award.color} border rounded-xl p-4 sm:p-6 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 cursor-pointer`}

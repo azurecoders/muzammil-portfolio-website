@@ -1,6 +1,8 @@
 "use client";
+import { projectDetailsData } from "@/data/projectDetail";
 import { ArrowUpRight, Filter, Search, Sparkles, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const ProjectsPage = () => {
@@ -10,96 +12,7 @@ const ProjectsPage = () => {
   const [showFilters, setShowFilters] = useState(false);
 
   // Sample project data - replace with your actual projects
-  const projects = [
-    {
-      id: 1,
-      title: "Mobile App for Task Management",
-      category: "App Development",
-      tags: ["React Native", "Firebase", "UI/UX"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
-      description:
-        "A comprehensive task management application with real-time synchronization and collaborative features.",
-      client: "TaskMaster Inc.",
-      completionDate: "March 2025",
-    },
-    {
-      id: 2,
-      title: "E-commerce Website Redesign",
-      category: "Web Development",
-      tags: ["Next.js", "Tailwind CSS", "API Integration"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
-      description:
-        "Complete redesign of an e-commerce platform focusing on user experience and conversion optimization.",
-      client: "Fashion Outlet",
-      completionDate: "January 2025",
-    },
-    {
-      id: 3,
-      title: "Healthcare Management System",
-      category: "Enterprise Solution",
-      tags: ["React", "Node.js", "MongoDB"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
-      description:
-        "An end-to-end solution for managing patient records, appointments, and hospital resources.",
-      client: "MediCare Hospital",
-      completionDate: "December 2024",
-    },
-    {
-      id: 4,
-      title: "Financial Dashboard",
-      category: "Data Visualization",
-      tags: ["D3.js", "React", "REST API"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
-      description:
-        "Interactive dashboard for visualizing financial data with real-time updates and predictive analytics.",
-      client: "InvestPro Financial",
-      completionDate: "February 2025",
-    },
-    {
-      id: 5,
-      title: "Smart Home IoT Application",
-      category: "IoT Development",
-      tags: ["React Native", "IoT", "AWS"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
-      description:
-        "Mobile application for controlling smart home devices with automation features and energy monitoring.",
-      client: "SmartLiving Tech",
-      completionDate: "April 2025",
-    },
-    {
-      id: 6,
-      title: "Educational Learning Platform",
-      category: "Web Development",
-      tags: ["Next.js", "GraphQL", "UI/UX"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
-      description:
-        "Interactive learning platform with course management, quizzes, and progress tracking for students.",
-      client: "EduLearn Academy",
-      completionDate: "November 2024",
-    },
-    {
-      id: 7,
-      title: "Restaurant Management System",
-      category: "Enterprise Solution",
-      tags: ["React", "Node.js", "PostgreSQL"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
-      description:
-        "Comprehensive system for managing restaurant operations including orders, inventory, and staff scheduling.",
-      client: "Gourmet Dining Group",
-      completionDate: "January 2025",
-    },
-    {
-      id: 8,
-      title: "Travel Booking Application",
-      category: "App Development",
-      tags: ["Flutter", "Firebase", "Payment Gateway"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
-      description:
-        "Cross-platform mobile application for booking flights, hotels, and activities with personalized recommendations.",
-      client: "TravelEase",
-      completionDate: "March 2025",
-    },
-  ];
+  const projects = projectDetailsData.projects;
 
   // Get unique categories for filter
   const categories = [
@@ -121,23 +34,24 @@ const ProjectsPage = () => {
   });
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 min-h-screen projects-container">
       {/* Hero Section */}
       <section className="bg-white pt-32 pb-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-2">
             <Sparkles size={18} className="text-primary" />
             <span className="text-lg font-semibold tracking-wide uppercase">
-              Our Work
+              {projectDetailsData.label}
             </span>
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mt-4 mb-6 text-gray-800">
-            Explore Our <span className="text-primary">Projects</span>
+            {projectDetailsData.headings.headingNormal}{" "}
+            <span className="text-primary">
+              {projectDetailsData.headings.headingHighlighted}
+            </span>
           </h1>
           <p className="text-xl max-w-3xl text-gray-600">
-            Discover our comprehensive portfolio showcasing innovative solutions
-            across various industries. Each project represents our commitment to
-            excellence and client satisfaction.
+            {projectDetailsData.description}
           </p>
         </div>
       </section>
@@ -171,12 +85,12 @@ const ProjectsPage = () => {
             </button>
 
             {/* Filters - Desktop */}
-            <div className="hidden md:flex items-center gap-4 overflow-x-auto pb-2">
+            <div className="hidden md:flex items-center gap-4 overflow-x-auto filters-scroll pb-2">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setActiveFilter(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
                     activeFilter === category
                       ? "bg-primary text-white"
                       : "bg-gray-50 text-gray-700 hover:bg-gray-100"
@@ -223,7 +137,7 @@ const ProjectsPage = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="max-w-7xl mx-auto px-4 py-16">
+      <section className="max-w-7xl mx-auto px-4 py-16 projects-grid">
         {filteredProjects.length === 0 ? (
           <div className="text-center py-20">
             <h3 className="text-2xl font-medium text-gray-700">
@@ -236,8 +150,10 @@ const ProjectsPage = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
-              <div
+              <Link
                 key={project.id}
+                href={project.href}
+                target="_blank"
                 className="group bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
               >
                 <div className="relative overflow-hidden h-64">
@@ -281,12 +197,12 @@ const ProjectsPage = () => {
                         Client: {project.client}
                       </span>
                     </div>
-                    <button className="flex items-center justify-center border border-primary text-primary p-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-300">
+                    <div className="flex items-center justify-center border border-primary text-primary p-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-300">
                       <ArrowUpRight size={18} />
-                    </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
@@ -309,6 +225,72 @@ const ProjectsPage = () => {
           </button>
         </div>
       </section>
+
+      <style jsx global>{`
+        /* Project page specific scrollbar */
+        .projects-container::-webkit-scrollbar {
+          width: 6px;
+          height: 6px;
+        }
+
+        .projects-container::-webkit-scrollbar-track {
+          background: rgba(40, 233, 140, 0.05);
+          border-radius: 4px;
+        }
+
+        .projects-container::-webkit-scrollbar-thumb {
+          background: linear-gradient(to bottom, #28e98c, #28e98c);
+          border-radius: 4px;
+          border: none;
+          transition: all 0.3s ease;
+        }
+
+        .projects-container::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(to bottom, #1dcf7a, #1dcf7a);
+        }
+
+        /* Horizontal filters scrollbar styling */
+        .filters-scroll::-webkit-scrollbar {
+          height: 4px;
+          width: 4px;
+        }
+
+        .filters-scroll::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 10px;
+        }
+
+        .filters-scroll::-webkit-scrollbar-thumb {
+          background: #28e98c;
+          border-radius: 10px;
+          transition: background 0.2s ease;
+        }
+
+        .filters-scroll::-webkit-scrollbar-thumb:hover {
+          background: #1dcf7a;
+        }
+
+        /* Projects grid area scrollbar */
+        .projects-grid::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .projects-grid::-webkit-scrollbar-track {
+          background: #f9f9f9;
+          border-radius: 3px;
+        }
+
+        .projects-grid::-webkit-scrollbar-thumb {
+          background: #28e98c;
+          border-radius: 3px;
+          border-right: 1px solid #f9f9f9;
+          border-left: 1px solid #f9f9f9;
+        }
+
+        .projects-grid::-webkit-scrollbar-thumb:hover {
+          background: #1dcf7a;
+        }
+      `}</style>
     </div>
   );
 };

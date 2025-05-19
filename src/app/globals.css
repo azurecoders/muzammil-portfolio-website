@@ -3,6 +3,8 @@
 :root {
   --foreground: white;
   --primary: #28e98c;
+  --primary-hover: #1dcf7a;
+  --primary-light: rgba(40, 233, 140, 0.1);
   --secondary: #1e1e1e;
   --shade: #ccf2ff;
 }
@@ -12,4 +14,43 @@
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-shade: var(--shade);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 8px;
+  border: 2px solid var(--secondary);
+  transition: background 0.3s ease;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+/* Handle when active/clicked */
+::-webkit-scrollbar-thumb:active {
+  background: var(--primary-hover);
+}
+
+/* Corner where horizontal and vertical scrollbars meet */
+::-webkit-scrollbar-corner {
+  background: var(--secondary);
 }

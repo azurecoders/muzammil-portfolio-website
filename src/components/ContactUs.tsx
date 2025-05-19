@@ -1,4 +1,6 @@
 "use client";
+import { contactData } from "@/data/contact";
+import { importantLinksData } from "@/data/importantLinks";
 import { Mail, MessageSquare, Phone, Send, User } from "lucide-react";
 import React, { useState } from "react";
 
@@ -16,7 +18,10 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-28">
+    <section
+      id="contact"
+      className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-28"
+    >
       {/* Container with background decoration */}
       <div className="relative rounded-xl overflow-hidden bg-white">
         {/* Background decoration */}
@@ -33,18 +38,18 @@ const ContactUs = () => {
           {/* Left side - Heading and contact info */}
           <div className="text-center lg:text-left w-full lg:w-2/5 mb-12 lg:mb-0">
             <div className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-4 md:mb-6">
-              Get in touch
+              {contactData.label}
             </div>
 
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 leading-tight mb-4 md:mb-6">
-              {"Let's "}
-              <span className="text-primary">Connect</span>
+              {contactData.headings.headingNormal}{" "}
+              <span className="text-primary">
+                {contactData.headings.headingHighlighted}
+              </span>
             </h2>
 
             <p className="text-base md:text-lg text-gray-600 max-w-md mx-auto lg:mx-0">
-              {
-                "Have questions or want to discuss a project? We're here to help bring your ideas to life."
-              }
+              {contactData.description}
             </p>
 
             {/* Contact info */}
@@ -52,12 +57,14 @@ const ContactUs = () => {
               <div className="flex items-center justify-center lg:justify-start space-x-3 text-gray-600">
                 <Mail size={18} className="text-primary flex-shrink-0" />
                 <span className="text-sm md:text-base overflow-hidden text-ellipsis">
-                  amjadhussainshadow@gmail.com
+                  {contactData.email}
                 </span>
               </div>
               <div className="flex items-center justify-center lg:justify-start space-x-3 text-gray-600">
                 <Phone size={18} className="text-primary flex-shrink-0" />
-                <span className="text-sm md:text-base">+92 355 5085804</span>
+                <span className="text-sm md:text-base">
+                  {contactData.phoneNumber}
+                </span>
               </div>
             </div>
           </div>
@@ -66,7 +73,7 @@ const ContactUs = () => {
           <div className="w-full lg:w-1/2">
             <div className="bg-white px-4 py-6 md:p-8 rounded-2xl border border-gray-200 shadow-lg">
               <form
-                action="https://formsubmit.co/amjadhussainshadow@gmail.com"
+                action={`https://formsubmit.co/${importantLinksData.formSubmitEmail}`}
                 method="post"
                 className="space-y-5"
               >

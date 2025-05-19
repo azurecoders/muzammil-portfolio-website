@@ -1,4 +1,6 @@
 "use client";
+import { aboutData } from "@/data/about";
+import { importantLinksData } from "@/data/importantLinks";
 import {
   ArrowUpRight,
   Sparkles,
@@ -7,6 +9,7 @@ import {
   Briefcase,
   Globe,
 } from "lucide-react";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 const About = () => {
@@ -36,7 +39,7 @@ const About = () => {
 
   return (
     <section
-      id="about-section"
+      id="about"
       className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
     >
       <div className="flex flex-col lg:flex-row justify-between items-center gap-8 md:gap-12 lg:gap-16">
@@ -61,7 +64,10 @@ const About = () => {
               <div className="w-full h-full rounded-xl bg-gradient-to-br from-primary/10 to-blue-300/10"></div>
 
               {/* Image itself */}
-              <div className="absolute inset-0 w-full h-full rounded-md object-cover object-top z-10 bg-[url('/hero.webp')] bg-cover bg-center bg-top" />
+              <div
+                className="absolute inset-0 w-full h-full rounded-md z-10 bg-cover bg-center bg-top"
+                style={{ backgroundImage: `url('${aboutData.userImage}')` }}
+              />
 
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60"></div>
@@ -79,25 +85,23 @@ const About = () => {
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/10 rounded-full">
             <Sparkles size={16} className="text-primary" />
             <span className="text-xs sm:text-sm font-semibold text-primary tracking-wide uppercase">
-              About Me
+              {aboutData.label}
             </span>
           </div>
 
           {/* Headings - Responsive font sizes */}
           <div className="space-y-1">
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800">
-              Solving Problems With
+              {aboutData.headings.normalHeading}
             </h3>
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary">
-              Intuitive Design
+              {aboutData.headings.highlightedHeading}
             </h3>
           </div>
 
           {/* Description */}
           <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl">
-            {
-              "I'm a passionate designer and developer creating thoughtful digital experiences that connect brands with their audience. With a focus on clean aesthetics and user-centered design, I transform complex problems into elegant solutions."
-            }
+            {aboutData.description}
           </p>
 
           {/* Stats - Grid responsive adjustments */}
@@ -108,7 +112,7 @@ const About = () => {
               </div>
               <div>
                 <h3 className="text-3xl sm:text-4xl font-bold text-gray-800">
-                  10+
+                  {aboutData.stats.experience}+
                 </h3>
                 <p className="text-sm sm:text-md font-medium text-gray-500">
                   Years of Experience
@@ -122,7 +126,7 @@ const About = () => {
               </div>
               <div>
                 <h3 className="text-3xl sm:text-4xl font-bold text-gray-800">
-                  14+
+                  {aboutData.stats.clients}+
                 </h3>
                 <p className="text-sm sm:text-md font-medium text-gray-500">
                   Satisfied Clients
@@ -136,7 +140,7 @@ const About = () => {
               </div>
               <div>
                 <h3 className="text-3xl sm:text-4xl font-bold text-gray-800">
-                  8
+                  {aboutData.stats.awards}
                 </h3>
                 <p className="text-sm sm:text-md font-medium text-gray-500">
                   Design Awards
@@ -150,7 +154,7 @@ const About = () => {
               </div>
               <div>
                 <h3 className="text-3xl sm:text-4xl font-bold text-gray-800">
-                  20+
+                  {aboutData.stats.countries}+
                 </h3>
                 <p className="text-sm sm:text-md font-medium text-gray-500">
                   Countries Served
@@ -161,13 +165,17 @@ const About = () => {
 
           {/* CTA Button - Responsive padding and sizing */}
           <div className="pt-4 sm:pt-6">
-            <button className="group flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <span className="text-sm sm:text-base">Learn More About Me</span>
+            <Link
+              href={importantLinksData.cvDownloadLink}
+              download={true}
+              className="group flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer w-fit"
+            >
+              <span className="text-sm sm:text-base">Download CV</span>
               <ArrowUpRight
                 size={16}
                 className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
               />
-            </button>
+            </Link>
           </div>
         </div>
       </div>
