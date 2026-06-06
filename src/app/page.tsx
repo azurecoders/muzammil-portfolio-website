@@ -1,26 +1,19 @@
-"use client";
-import About from "@/components/About";
-import Awards from "@/components/Awards";
-import ContactUs from "@/components/ContactUs";
-import Experience from "@/components/Experience";
-import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
-import Project from "@/components/Project";
-import Service from "@/components/Service";
-import Testimonials from "@/components/Testimonials";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { Skills } from "@/components/sections/Skills";
+import { SelectedWork } from "@/components/sections/SelectedWork";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <About />
-      <Service />
-      <Project />
-      <Experience />
-      <Awards />
+      <Skills />
+      <SelectedWork />
       <Testimonials />
-      <ContactUs />
-      <Footer />
+      <Contact />
     </>
   );
 }

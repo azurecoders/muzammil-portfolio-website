@@ -1,0 +1,146 @@
+/* All design tokens. Imported by globals.css. */
+
+@layer base {
+  :root {
+    /* ─────────────────────────────────────────────────────────────
+       DARK THEME (default)
+       Surface ramp: bg → bg-soft → bg-elevated (each ~6-8L* lighter)
+       Accent: electric lime — confident, distinctive, screen-native
+       ───────────────────────────────────────────────────────────── */
+    --bg: #0a0a0b;
+    --bg-soft: #111114;
+    --bg-elevated: #181820;
+    --fg: #ececee;
+    --fg-mute: #8a8a92;
+    --fg-faint: #4a4a52;
+    --border: #1f1f23;
+    --border-strong: #2a2a30;
+
+    /* Accent — lime green, biased slightly cool */
+    --accent: #c6ff3d;
+    --accent-soft: #2a3a0a; /* deep tint of accent for backgrounds */
+    --accent-fg: #0a0a0b;
+    --ring: #c6ff3d;
+
+    /* Semantic colors — same in both themes for consistency */
+    --success: #4ade80;
+    --warning: #fbbf24;
+    --danger: #ef4444;
+
+    /* Spacing scale (8pt grid) */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+    --space-20: 80px;
+    --space-24: 96px;
+    --space-32: 128px;
+    --space-40: 160px;
+    --space-48: 192px;
+    --space-64: 256px;
+
+    /* Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+    --radius-pill: 999px;
+
+    /* Shadows — dark theme: deep, atmospheric */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 60px -10px rgba(198, 255, 61, 0.3);
+
+    /* Font families (set in layout.tsx via next/font) */
+    --font-display: var(--font-fraunces), Georgia, serif;
+    --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+    --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", Menlo,
+      monospace;
+
+    /* Fluid type scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: clamp(1.75rem, 1.5rem + 1.25vw, 2.25rem);
+    --text-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3rem);
+    --text-5xl: clamp(3rem, 2rem + 5vw, 4.5rem);
+    --text-6xl: clamp(3.5rem, 2rem + 7.5vw, 5.5rem);
+    --text-7xl: clamp(4rem, 2rem + 10vw, 7rem);
+    --text-8xl: clamp(5rem, 2rem + 15vw, 9rem);
+    --text-9xl: clamp(6rem, 2rem + 20vw, 11rem);
+
+    /* Tracking */
+    --tracking-tight: -0.03em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.05em;
+    --tracking-wider: 0.1em;
+
+    /* Motion */
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+    --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --duration-fast: 150ms;
+    --duration-base: 300ms;
+    --duration-slow: 600ms;
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     LIGHT THEME — paper / cream, NOT sterile white
+     Surface ramp: bg (cream paper) → bg-soft (warm parchment) → bg-elevated (slightly raised)
+     Accent: deep olive — same hue family as dark lime, but earthbound
+     ───────────────────────────────────────────────────────────── */
+  .light,
+  [data-theme="light"] {
+    --bg: #f7f5ef; /* warm cream, NOT pure white */
+    --bg-soft: #efece3; /* warm parchment for sections */
+    --bg-elevated: #ffffff; /* paper-white for elevated cards (highest surface) */
+    --fg: #1a1a1c; /* near-black with warm undertone */
+    --fg-mute: #5c5c58; /* warm gray, readable */
+    --fg-faint: #9a9a92; /* subtle hierarchy step */
+    --border: #d8d5cc; /* visible warm border */
+    --border-strong: #b8b4a8; /* stronger variant for emphasis */
+
+    /* Accent — deep olive, same hue family as the lime, but darker for contrast on light */
+    --accent: #4a6b00;
+    --accent-soft: #e8edd0; /* tint for accent backgrounds */
+    --accent-fg: #f7f5ef;
+    --ring: #4a6b00;
+
+    /* Shadows — light theme: soft, paper-like, NOT pitch-black */
+    --shadow-sm: 0 1px 2px rgba(26, 26, 28, 0.06);
+    --shadow-md: 0 8px 24px rgba(26, 26, 28, 0.08);
+    --shadow-lg: 0 24px 64px rgba(26, 26, 28, 0.12);
+    --shadow-glow: 0 0 60px -10px rgba(74, 107, 0, 0.25);
+  }
+
+  /* Respect OS preference on first load if no manual override */
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]):not(.dark) {
+      --bg: #f7f5ef;
+      --bg-soft: #efece3;
+      --bg-elevated: #ffffff;
+      --fg: #1a1a1c;
+      --fg-mute: #5c5c58;
+      --fg-faint: #9a9a92;
+      --border: #d8d5cc;
+      --border-strong: #b8b4a8;
+      --accent: #4a6b00;
+      --accent-soft: #e8edd0;
+      --accent-fg: #f7f5ef;
+      --ring: #4a6b00;
+      --shadow-sm: 0 1px 2px rgba(26, 26, 28, 0.06);
+      --shadow-md: 0 8px 24px rgba(26, 26, 28, 0.08);
+      --shadow-lg: 0 24px 64px rgba(26, 26, 28, 0.12);
+      --shadow-glow: 0 0 60px -10px rgba(74, 107, 0, 0.25);
+    }
+  }
+}

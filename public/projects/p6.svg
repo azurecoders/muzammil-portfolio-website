@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <rect width="1600" height="1000" fill="#FAFAF7"/>
+  <g transform="translate(80, 80)">
+    <rect width="120" height="28" rx="14" fill="#4A6B00" opacity="0.2"/>
+    <text x="60" y="19" text-anchor="middle" fill="#4A6B00" font-family="monospace" font-size="13" font-weight="500">BLOG ENGINE</text>
+  </g>
+  <g transform="translate(80, 200)">
+    <text fill="#0A0A0B" font-family="serif" font-size="140" font-weight="500" letter-spacing="-4" font-style="italic">Field Notes</text>
+  </g>
+  <g transform="translate(80, 450)" font-family="serif">
+    <text fill="#0A0A0B" font-size="32" font-weight="400">— On writing, software, and</text>
+    <text y="50" fill="#0A0A0B" font-size="32" font-weight="400">  the slow craft of building tools</text>
+    <text y="100" fill="#0A0A0B" font-size="32" font-weight="400">  for thought.</text>
+  </g>
+  <g transform="translate(80, 700)" font-family="monospace">
+    <text fill="#5C5C58" font-size="14" letter-spacing="2">MARCH 2024</text>
+  </g>
+  <line x1="80" y1="800" x2="200" y2="800" stroke="#4A6B00" stroke-width="2"/>
+  <text x="80" y="850" fill="#5C5C58" font-family="monospace" font-size="14" letter-spacing="2">2,000 WRITERS · OPEN SOURCE</text>
+</svg>
