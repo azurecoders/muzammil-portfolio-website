@@ -55,7 +55,7 @@ export default async function OG() {
               display: "flex",
             }}
           >
-            {site.name}.
+            {site.shortName}.
           </div>
           <div
             style={{

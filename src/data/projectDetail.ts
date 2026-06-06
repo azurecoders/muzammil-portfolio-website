@@ -1,107 +1,97 @@
 export const projectDetailsData = {
-  label: "Our Work",
+  label: "Portfolio",
+
   headings: {
-    headingNormal: "Explore Our",
+    headingNormal: "Featured",
     headingHighlighted: "Projects",
   },
+
   description:
-    "Discover our comprehensive portfolio showcasing innovative solutions across various industries. Each project represents our commitment to excellence and client satisfaction.",
+    "A collection of web applications, business platforms, startup ventures, and client solutions built using modern technologies. These projects showcase my experience in full-stack development, UI engineering, and scalable web architectures.",
+
   projects: [
     {
       id: 1,
-      title: "Mobile App for Task Management",
-      category: "App Development",
-      tags: ["React Native", "Firebase", "UI/UX"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
+      title: "AM Dev Studio",
+      category: "Agency Platform",
+      tags: ["Next.js", "TypeScript", "GSAP", "Three.js"],
+      image:
+        "https://ik.imagekit.io/mhkn4hoiyk/muzammil-portfolio-don't-delete/Agency.png",
       description:
-        "A comprehensive task management application with real-time synchronization and collaborative features.",
-      client: "TaskMaster Inc.",
-      completionDate: "March 2025",
-      href: "/",
+        "Modern digital agency platform focused on performance, immersive interactions, and conversion-driven user experiences.",
+      client: "AM Dev Studio",
+      completionDate: "2026",
+      href: "https://agency-website-three-ecru.vercel.app/",
     },
+
     {
       id: 2,
-      title: "E-commerce Website Redesign",
-      category: "Web Development",
-      tags: ["Next.js", "Tailwind CSS", "API Integration"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
+      title: "North Karakoram",
+      category: "Tourism Platform",
+      tags: ["Next.js", "PostgreSQL", "GSAP"],
+      image:
+        "https://ik.imagekit.io/mhkn4hoiyk/muzammil-portfolio-don't-delete/North%20Karakoram.png",
       description:
-        "Complete redesign of an e-commerce platform focusing on user experience and conversion optimization.",
-      client: "Fashion Outlet",
-      completionDate: "January 2025",
-      href: "/",
+        "Tourism and travel platform showcasing destinations, travel packages, and booking information with a modern user experience.",
+      client: "North Karakoram",
+      completionDate: "2026",
+      href: "https://northkarakoram.com/",
     },
+
     {
       id: 3,
-      title: "Healthcare Management System",
-      category: "Enterprise Solution",
-      tags: ["React", "Node.js", "MongoDB"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
+      title: "Clipsee",
+      category: "Corporate Website",
+      tags: ["Next.js", "React", "GSAP"],
+      image:
+        "https://ik.imagekit.io/mhkn4hoiyk/muzammil-portfolio-don't-delete/Clipsee.png",
       description:
-        "An end-to-end solution for managing patient records, appointments, and hospital resources.",
-      client: "MediCare Hospital",
-      completionDate: "December 2024",
-      href: "/",
+        "Corporate website developed for a food manufacturing company to showcase products and strengthen its online presence.",
+      client: "Clipsee",
+      completionDate: "2025",
+      href: "https://clipsee.vercel.app/",
     },
+
     {
       id: 4,
-      title: "Financial Dashboard",
-      category: "Data Visualization",
-      tags: ["D3.js", "React", "REST API"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
+      title: "Jotra",
+      category: "AI Startup",
+      tags: ["Next.js", "Docker", "Kubernetes", "AI"],
+      image:
+        "https://ik.imagekit.io/mhkn4hoiyk/muzammil-portfolio-don't-delete/Jotra.png",
       description:
-        "Interactive dashboard for visualizing financial data with real-time updates and predictive analytics.",
-      client: "InvestPro Financial",
-      completionDate: "February 2025",
-      href: "/",
+        "AI-powered multi-agent platform focused on workflow automation, intelligent task execution, and scalable cloud-native deployment.",
+      client: "Jotra",
+      completionDate: "2026",
+      href: "https://jorta.cyou/",
     },
+
     {
       id: 5,
-      title: "Smart Home IoT Application",
-      category: "IoT Development",
-      tags: ["React Native", "IoT", "AWS"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
+      title: "Zayphire",
+      category: "E-Commerce",
+      tags: ["Next.js", "MongoDB", "Authentication"],
+      image:
+        "https://ik.imagekit.io/mhkn4hoiyk/muzammil-portfolio-don't-delete/Zayphire.png",
       description:
-        "Mobile application for controlling smart home devices with automation features and energy monitoring.",
-      client: "SmartLiving Tech",
-      completionDate: "April 2025",
-      href: "/",
+        "E-commerce platform for a fragrance brand featuring secure authentication, product management, and streamlined shopping experiences.",
+      client: "Zayphire",
+      completionDate: "2025",
+      href: "https://fragnance.zayphire.store/",
     },
+
     {
       id: 6,
-      title: "Educational Learning Platform",
-      category: "Web Development",
-      tags: ["Next.js", "GraphQL", "UI/UX"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
+      title: "Sound Way",
+      category: "Business Website",
+      tags: ["Next.js", "Tailwind CSS"],
+      image:
+        "https://ik.imagekit.io/mhkn4hoiyk/muzammil-portfolio-don't-delete/Soundway.png",
       description:
-        "Interactive learning platform with course management, quizzes, and progress tracking for students.",
-      client: "EduLearn Academy",
-      completionDate: "November 2024",
-      href: "/",
-    },
-    {
-      id: 7,
-      title: "Restaurant Management System",
-      category: "Enterprise Solution",
-      tags: ["React", "Node.js", "PostgreSQL"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
-      description:
-        "Comprehensive system for managing restaurant operations including orders, inventory, and staff scheduling.",
-      client: "Gourmet Dining Group",
-      completionDate: "January 2025",
-      href: "/",
-    },
-    {
-      id: 8,
-      title: "Travel Booking Application",
-      category: "App Development",
-      tags: ["Flutter", "Firebase", "Payment Gateway"],
-      image: "https://ex-coders.com/html/xiomi/assets/img/project/1.jpg",
-      description:
-        "Cross-platform mobile application for booking flights, hotels, and activities with personalized recommendations.",
-      client: "TravelEase",
-      completionDate: "March 2025",
-      href: "/",
+        "Business website for an audio equipment retailer, helping showcase products and improve digital visibility.",
+      client: "Sound Way",
+      completionDate: "2023",
+      href: "https://soundway.pk/",
     },
   ],
 };

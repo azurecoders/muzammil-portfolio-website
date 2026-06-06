@@ -3,23 +3,26 @@ import type { Testimonial } from "@/types/content";
 export const testimonials: Testimonial[] = [
   {
     id: "t1",
-    quote: "Muzammil shipped a system most teams twice our size couldn't. The attention to motion and detail was a step above.",
-    name: "Ayesha Khan",
-    role: "CTO",
-    company: "Lumen",
+    quote:
+      "Muzammil was easy to work with and delivered exactly what was discussed. Communication was clear throughout the project.",
+    name: "Hassan",
+    role: "CEO",
+    company: "Alpine Karakoram",
   },
   {
     id: "t2",
-    quote: "The rare engineer who can hold both the architecture and the animation timeline in their head. Reliable, fast, opinionated in the right ways.",
-    name: "Daniel Park",
-    role: "Head of Product",
-    company: "Knot",
+    quote:
+      "The website was responsive, clean, and worked smoothly across devices. Any requested changes were implemented quickly.",
+    name: "Habib Hassan",
+    role: "Director",
+    company: "Soundway.pk",
   },
   {
     id: "t3",
-    quote: "Brought our prototype from Figma to production in three weeks. The codebase was clean enough that we onboarded two new engineers in days.",
-    name: "Sara Ahmed",
+    quote:
+      "A reliable developer who focuses on solving problems and continuously improving the quality of his work. The final result met our expectations.",
+    name: "Imran Mani",
     role: "Founder",
-    company: "Halo",
+    company: "Orange Sign",
   },
 ];

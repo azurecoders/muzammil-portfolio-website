@@ -247,9 +247,8 @@ export function Hero() {
                 data-hero-reveal
                 className="mt-3 sm:mt-4 block font-sans not-italic text-base sm:text-lg lg:text-xl tracking-normal leading-snug text-fg-mute max-w-xl"
               >
-                <span className="text-fg">{site.role}</span> building products
-                that feel as good as they perform — Next.js, Node, Postgres,
-                end-to-end.
+                <span className="text-fg">{site.role}</span> — React, Node,
+                Next.js. I ship products that don't apologize for themselves.
               </span>
             </h1>
           </div>
@@ -271,7 +270,7 @@ export function Hero() {
                   <span className="absolute inset-0 rounded-full border border-emerald-400/80 animate-[pulse-ring_2.4s_ease-out_infinite]" />
                   <span className="absolute inset-[3px] rounded-full bg-emerald-400" />
                 </span>
-                Available · Now
+                Available for select work
               </span>
             </div>
 
@@ -312,7 +311,7 @@ export function Hero() {
                 <span className="absolute inset-0 rounded-full border border-emerald-400/80 animate-[pulse-ring_2.4s_ease-out_infinite]" />
                 <span className="absolute inset-[2px] rounded-full bg-emerald-400" />
               </span>
-              Available · Q4
+              Available for select work
             </span>
             <span className="text-fg-mute/40">·</span>
             <span>{site.location}</span>

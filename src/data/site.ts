@@ -1,34 +1,32 @@
 import type { Site } from "@/types/content";
 
 export const site: Site = {
-  name: "Muzammil",
+  name: "Muzammil Ahmed Khan",
   shortName: "Muzammil",
-  role: "Full-stack engineer",
-  tagline: "Next.js · Node · Postgres",
-  bio: "I build thoughtful, performant web products end-to-end — from system design and data modeling down to the last animation frame. I care about the small things most people skip: typography, motion, accessibility, and the seam between design and engineering.",
+  role: "Full-stack developer",
+  tagline: "React · Node · Next.js",
+  bio: "I build full-stack web apps with React, Node, and Next.js. I run them on a VPS I manage with Docker, and I'm in my first year of college. I like building things I can actually use.",
   location: "Karachi, PK",
-  timezone: "Asia/Karachi", // valid IANA timezone
-  email: "hello@muzammil.dev",
+  email: "muzammilakdev@gmail.com",
   socials: [
     {
       platform: "github",
-      href: "https://github.com/muzammil",
-      handle: "@muzammil",
+      href: "https://github.com/azurecoders",
+      handle: "azurecoders",
     },
     {
       platform: "linkedin",
-      href: "https://linkedin.com/in/muzammil",
-      handle: "in/muzammil",
+      href: "https://www.linkedin.com/in/muzammil-ahmed-96ab09396/",
+      handle: "muzammil-ahmed-96ab09396",
     },
-    { platform: "x", href: "https://x.com/muzammil", handle: "@muzammil" },
   ],
   stats: [
-    { label: "Years building", value: 5 },
-    { label: "Shipped projects", value: 24 },
-    { label: "Open-source", value: 12 },
-    { label: "Happy clients", value: 18 },
+    { label: "Years writing code", value: 7 },
+    { label: "Projects shipped", value: 20, suffix: "+" },
+    { label: "Years on Next.js", value: 4 },
+    { label: "Technologies", value: 15, suffix: "+" },
   ],
   resumeUrl: "",
-  currently:
-    "Building an AI-powered analytics tool, contributing to a Next.js UI library.",
+  currently: "Building on the web from Karachi.",
+  timezone: "Asia/Karachi",
 };
