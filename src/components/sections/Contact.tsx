@@ -194,10 +194,10 @@ export function Contact() {
             className={cn(
               "relative inline-flex flex-wrap items-baseline",
               "font-display tracking-tight leading-[1.05]",
-              "text-[clamp(2.25rem,7vw,6rem)]",
+              "text-[clamp(1.5rem,7vw,6rem)]",
               "text-fg transition-colors duration-500",
               "hover:text-accent",
-              "break-all will-change-transform"
+              "break-all will-change-transform",
             )}
           >
             {emailChars.map((ch, i) => (
@@ -227,7 +227,7 @@ export function Contact() {
               "rounded-full border border-border px-4 py-2",
               "font-mono text-[11px] uppercase tracking-[0.18em] text-fg-mute",
               "transition-all duration-300",
-              "hover:border-fg hover:text-fg"
+              "hover:border-fg hover:text-fg",
             )}
           >
             {copied ? (

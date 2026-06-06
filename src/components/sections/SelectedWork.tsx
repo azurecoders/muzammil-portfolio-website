@@ -177,7 +177,7 @@ export function SelectedWork() {
                   "shrink-0 font-display italic leading-none select-none",
                   "text-[clamp(20rem,40vw,40rem)] tracking-[-0.06em]",
                   "text-transparent",
-                  "[-webkit-text-stroke:1px_var(--border)]"
+                  "[-webkit-text-stroke:1px_var(--border)]",
                 )}
               >
                 {String(idx + 1).padStart(2, "0")}
@@ -222,7 +222,7 @@ export function SelectedWork() {
                   "work-card shrink-0",
                   "w-[64vw] lg:w-[50vw] xl:w-[44vw] max-w-[820px]",
                   "h-[62vh] max-h-[600px]",
-                  "relative group/card"
+                  "relative group/card",
                 )}
               >
                 {/* Card inner — gets scale/rotate/translate from ScrollTrigger */}
@@ -230,7 +230,7 @@ export function SelectedWork() {
                   className={cn(
                     "card-inner relative h-full w-full rounded-xl overflow-hidden",
                     "border border-border bg-bg-soft",
-                    "shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)]"
+                    "shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)]",
                   )}
                   style={{
                     willChange: "transform",

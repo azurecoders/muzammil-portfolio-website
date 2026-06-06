@@ -60,7 +60,7 @@ function MagneticCta({
         "rounded-pill bg-accent text-accent-fg",
         "font-medium text-[13px] tracking-tight",
         "transition-all duration-300",
-        "hover:brightness-110 hover:shadow-[0_8px_20px_-6px_var(--accent)]"
+        "hover:brightness-110 hover:shadow-[0_8px_20px_-6px_var(--accent)]",
       )}
     >
       <span>{children}</span>
@@ -113,7 +113,7 @@ export function Navbar() {
           onToggle: (self) => {
             if (self.isActive) setActiveHref(l.href);
           },
-        })
+        }),
       );
     });
 
@@ -163,7 +163,7 @@ export function Navbar() {
             ease: "expo.out",
             stagger: 0.06,
             delay: 0.1,
-          }
+          },
         );
       }
     } else {
@@ -179,7 +179,7 @@ export function Navbar() {
       <header
         className={cn(
           "fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50",
-          "transition-all duration-500"
+          "transition-all duration-500",
         )}
       >
         <nav
@@ -188,7 +188,7 @@ export function Navbar() {
             "h-12 sm:h-14 pl-2 pr-1 sm:pl-3 sm:pr-1.5",
             "rounded-pill border border-border",
             "backdrop-blur-xl backdrop-saturate-150",
-            "transition-all duration-500"
+            "transition-all duration-500",
           )}
           style={{
             background: scrolled
@@ -201,7 +201,7 @@ export function Navbar() {
         >
           {/* Logo + live indicator pill */}
           <Link
-            href="#top"
+            href="/"
             data-cursor="link"
             className="group/logo flex items-center gap-2.5 pl-2 pr-3 sm:pl-3 sm:pr-4 h-full"
           >
@@ -226,7 +226,7 @@ export function Navbar() {
               className={cn(
                 "absolute top-1/2 left-0 -translate-y-1/2 h-7 rounded-pill",
                 "bg-fg/10 opacity-0",
-                "transition-[transform,width,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                "transition-[transform,width,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
               )}
               style={{ width: "0px", willChange: "transform, width" }}
             />
@@ -244,7 +244,7 @@ export function Navbar() {
                   className={cn(
                     "relative z-10 font-mono text-[11px] uppercase tracking-[0.16em]",
                     "px-3 py-1.5 transition-colors duration-300",
-                    isActive ? "text-fg" : "text-fg-mute hover:text-fg"
+                    isActive ? "text-fg" : "text-fg-mute hover:text-fg",
                   )}
                 >
                   {l.label}
@@ -272,7 +272,7 @@ export function Navbar() {
               "md:hidden ml-1 w-9 h-9 rounded-pill",
               "flex items-center justify-center",
               "border border-border bg-bg/40 text-fg",
-              "hover:border-fg-mute transition-all duration-300"
+              "hover:border-fg-mute transition-all duration-300",
             )}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
@@ -286,7 +286,7 @@ export function Navbar() {
                   "absolute inset-0 transition-all duration-300",
                   open
                     ? "opacity-0 rotate-90 scale-50"
-                    : "opacity-100 rotate-0 scale-100"
+                    : "opacity-100 rotate-0 scale-100",
                 )}
               />
               <X
@@ -296,7 +296,7 @@ export function Navbar() {
                   "absolute inset-0 transition-all duration-300",
                   open
                     ? "opacity-100 rotate-0 scale-100"
-                    : "opacity-0 -rotate-90 scale-50"
+                    : "opacity-0 -rotate-90 scale-50",
                 )}
               />
             </span>
@@ -311,7 +311,7 @@ export function Navbar() {
           "transition-all duration-500 ease-out",
           open
             ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+            : "opacity-0 pointer-events-none",
         )}
       >
         {/* Backdrop */}
@@ -319,7 +319,7 @@ export function Navbar() {
           className={cn(
             "absolute inset-0 bg-bg/95 backdrop-blur-2xl",
             "transition-opacity duration-500",
-            open ? "opacity-100" : "opacity-0"
+            open ? "opacity-100" : "opacity-0",
           )}
           onClick={() => setOpen(false)}
         />
